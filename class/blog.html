@@ -78,7 +78,7 @@
       }
 
       var randomColor = $(".randomColor");
-
+      /* loop through each elemetent, then for each element it changes the css background colour rbg to three random colours*/
       $.each(randomColor, function(index, item) {
         $(this).css("background-color", "RGB(" + getRandomColor() + "," + getRandomColor() + "," + getRandomColor() + ")");
       })
