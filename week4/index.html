@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style media="screen">
+      .height1 {
+        height: 100px;
+      }
+
+      .height2 {
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 height1 randomColor">
+        </div></div>
+
+          <div class="row">
+            <div class="col-md-2 height2 randomColor">
+
+            </div>
+
+            <div class="col-md-8 height2 randomColor">
+
+            </div>
+
+            <div class="col-md-2 height2 randomColor">
+
+            </div></div>
+
+            <div class="row">
+              <div class="col-md-12 height1 randomColor">
+
+              </div>
+
+            </div>
+
+            </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      //get a random color between 0 and 255
+      function getRandomColor() {
+        return Math.floor(Math.random() * 255);
+      }
+
+      var randomColor = $(".randomColor");
+      /* loop through each elemetent, then for each element it changes the css background colour rbg to three random colours*/
+      $.each(randomColor, function(index, item) {
+        $(this).css("background-color", "RGB(" + getRandomColor() + "," + getRandomColor() + "," + getRandomColor() + ")");
+      })
+
+    })
+
+
+
+
+
+      </script>
+
+      <script type="text/javascript">
+
+      alert ("myJS!"); //name of function then to call the function
+      //in this case, "myJS" is called the parameter
+      //in this case, it is test; which is always within single quotations or double quotes
+      console.log ("write in the console....");
+
+  // brakets is the function, curly brackets is what will run when we call function
+
+      function myfirstFunction(){ //defining what it does
+
+  console.log ("write from inside the function....");
+
+
+      }
+
+      myfirstFunction();
+      myfirstFunction();
+      myfirstFunction();
+      myfirstFunction();
+
+  function myfunctionwithParameter(name){
+    console.log("hello"+name);
+
+
+  }
+
+  myfunctionwithParameter("Jeni");
+  myfunctionwithParameter(", how are you?");
+
+
+
+
+  })
+      </script>
+
+      <script type="text/javascript">
+      //hoolian values, a magician that dealed with the circus, it means true or false value "HOOLIAN"
+      var myOnOff= true;
+      var isDaytime = false;
+
+      var salary = 1000000;
+      var carPrice = 25000.25;
+
+      var emailAdress = "ttran13@guelphhumber.ca";
+      var sentence = "The Judgement of Paris.";
+      var anotherSentence = "Anderson's class";
+
+//what makes a number? when there is no quotations.. "String" means "text"
+      var salary1 = 1000000;
+      var salary2 = "100000";
+
+      var taxes = 25000;
+
+      console.log("My take home pay is " = (salary1-taxes));
+
+      console.log ("a bunch of information: "+salary+" and "+carPrice+"and even more"+isDayTime+);
+      var myConcatentation ="2a bunch of info :"+ salary + "and"+ carPrice+ "and even more" +isDayTime;
+
+      console.log(myConcatentation);
+
+      function writeToConsole(mySting; {
+        console.log(myString);
+
+      }
+      writeToConsole(myConcatenation);
+      writeToConsole ("3"+myConcatentation);
+      </script>
+
+
+  </body>
+  </html>
