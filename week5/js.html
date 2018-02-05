@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week5</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style media="screen">
+      .header {
+        height: 100px;
+      }
+
+      .ok {
+        height: 500px;
+      }
+
+      .boldRed {
+        color: red;
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 header randomColor">
+
+        </div></div>
+
+        <div class="row">
+          <div class="col-md-2 ok randomColor">
+
+          </div>
+
+          <div class="col-md-8 ok myConsole">
+
+          </div>
+
+          <div class="col-md-2 ok randomColor">
+
+          </div></div>
+
+          <div class="row">
+            <div class="col-md-12 header randomColor">
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+
+    //declare an empty array
+
+    var anotherArray= [];
+
+    //add an element to an array
+
+    anotherArray.push("someData");
+    anotherArray.push(4866);
+
+    console.log("the value of anotherArray: "+anotherArray);
+
+    var myArray = ["testing", "this", "is", "an", "array"];
+
+    //reference a specific index in the array:
+
+    console.log("the value at index 2 : "+ myArray[2]);
+    </script>
+    <script>
+
+// make an array with ten different numbers
+
+var numberArray= [87,33,75,80,99,35,78,20,8,100];
+
+//this enables you to check your code on the web browser, the code down below:
+
+console.log("numberArray "+numberArray);
+
+//built in functions we can use with an array
+
+console.log("the number of elements in numberArray: "+numberArray.length);
+
+//display something joined??? he speak too fast
+
+console.log("with some text in between:" +numberArray.join(";"));
+
+//var sum = numberArray[0]+numberArray[1]......
+//have to pay attention how to do this, any error, it will not work
+
+///to loop through an array we need to know three things:
+//1. where to start
+//2. where to end
+//3. the increment
+
+//we are going to loop when i is less than the number array
+
+//start at index 0
+//do the code block {} as long is < than numberarray.length (10) next value goes up by 1.
+//the increment is 1
+
+//i=0 the value of i is zero. any number that is less than i aka 0 then it goes up by the next value, by 1.
+//now he wants to add the numbers all together, wants to store values as a sum of them all
+//sum + adds itself from the sum
+//add to the running total
+
+var sum = 0;
+for (var i=0;i<numberArray.length;i=i+1){
+console.log("the current index is "+i);
+  console.log("the value at index "+i+" is "+numberArray[i])
+
+  //add to the running total
+  sum = sum + numberArray [i];
+  console.log("the current sum is "+sum);
+}
+
+//loop is finished, we can get the total
+console.log("the average is "+ (sum/numberArray.length));
+
+</script>
+
+<script>
+
+//declare an array where each element is a word in a sentence.
+//each sentence is an element in an array put those those elements together
+// put it into a loop, minimum 7 words
+//output to the console
+
+//put the words in the brackets, "array of words" is just the name of the array
+//+ adds, declares empty string variable
+
+var arrayOfWords = ["hi","hello","whatsup","how","are","you","hola"];
+//declaring an empty string variable
+var fullSentence="";
+//add each word
+for (var j=0;j<arrayOfWords.length;j=j+1){
+fullSentence = fullSentence + arrayOfWords[j]+" ";
+}
+//output the full sentence
+console.log("the full sentence is "+fullSentence);
+
+//$ sign means jquery function
+//document is the entire html as a variable, bulit in variable
+//ready is an 'event'
+//write a function inside of already
+//when the document is ready, it executes the functions
+
+$(document).ready(function(){
+  //get the myconsole element, call the html function
+  //html function writes html
+
+  //what we give the html function is a parameter
+  $(".myConsole").html("the full sentence is "+fullSentence);
+
+//append adds to the existing element, so instead of overwriting
+//the current text we have above, we can just ADD this text under neath
+
+$(".myConsole").append("<h1 class= 'boldRed'>here is another sentence</h1>");
+
+$(".myConsole").append("<div class='boldRed'>Text before all</div>");
+
+
+});
+
+
+</script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    //get a random color between 0 and 255
+    function getRandomColor() {
+      return Math.floor(Math.random() * 255);
+    }
+
+    var randomColor = $(".randomColor");
+    /* loop through each elemetent, then for each element it changes the css background colour rbg to three random colours*/
+    $.each(randomColor, function(index, item) {
+      $(this).css("background-color", "RGB(" + getRandomColor() + "," + getRandomColor() + "," + getRandomColor() + ")");
+    })
+
+  })
+</script>
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>
