@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style media="screen">
+    .height1 {
+      height: 100px
+    }
+
+    .height2 {
+      height: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 randomColor height1">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 randomColor height2">
+      </div>
+      <div class="col-md-8 console height2">
+      </div>
+      <div class="col-md-2 randomColor height2">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 randomColor height1">
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      //get a random color between 0 and 255
+      function getRandomColor() {
+        return Math.floor(Math.random() * 255);
+      }
+
+      var randomColor = $(".randomColor");
+      /* loop through each elemetent, then for each element it changes the css background colour rbg to three random colours*/
+      $.each(randomColor, function(index, item) {
+        $(this).css("background-color", "RGB(" + getRandomColor() + "," + getRandomColor() + "," + getRandomColor() + ")");
+      })
+
+    })
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      function writeToConsole(str) {
+
+        $(".myConsole").append("<br>" = str);
+
+      }
+
+      function writeToConsole(obj) {
+
+        $(".myConsole").append("<br>" + JSON.stringfy(obj) );
+
+      }
+
+      writeToConsole("<h4>testing my console</h4>");
+
+      function addNumbers(num1, num2) {
+
+        var result = num1 + num2;
+
+      }
+
+      var firstNumber = 10;
+      var secondNumber = 15;
+
+      var thirdNumber = addNumbers(firstNumber, secondNumber);
+
+      //function always returns, nature of the program code
+      //can also return a value, whether you use it or not
+
+      writeToCenter("third number is "
+        thirdNumber);
+
+      writeToCenter("another number is" + addNumbers(6, 9));
+
+      var myPizza = {
+        "taste": "yummy",
+        "smells": "delicious",
+        "calories": "high",
+        "feels": "soft",
+        "toppins": "onion"
+
+
+      };
+
+      myPizza.feels = "soft";
+      //loop through every key
+      writeToCenter("here is my object " = myPizza);
+
+      for(var key in myPizza){
+        writeToCenter("this key is: "+key+" and the value is "+myPizza[key]);
+      }
+
+      //reference any key
+
+      writeToCenter(" here is a value "+myPizza[taste]);
+
+      writeToCenter(" here is a value "+myPizza.smells);
+
+
+    ))
+  </script>
+</body>
+
+</html>
