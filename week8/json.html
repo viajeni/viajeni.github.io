@@ -18,6 +18,12 @@
     <![endif]-->
   </head>
   <body>
+    <div class="container">
+      <div class="row">
+
+      </div>
+
+    </div>
 
 
 
@@ -26,46 +32,36 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
-    [
-  {
-    "brand":"iphone",
-    "generation":"7 plus",
-    "color":"rose gold",
-    "size":"large"
-    "touch sensitive?":yes,
+  
+  <script>
+    //get the JSON
+    var url = "";
 
-  {
-    "brand":"samsung",
-    "generation":"s6",
-    "color":"black",
-    "size":"large"
-    "touch sensitive?":yes
+    $.getJSON(url).done(function(data) {
+      console.log("success! ");
+      console.dir(data);
+      //paste everything there
+      var dataHtml = "";
+      for (var i = 0; i < data.length; i++) {
+        console.log("i " + i);
+        dataHtml += '<div class="' + data[i].class + '">' +
+          '<img src="' + data[i].source + '" alt="">' +
+          '<div class="carousel-caption">' +
+          data[i].caption +
+          '</div>' +
+          '</div>';
+      }
+      console.log(dataHtml);
 
-  },
-  {
-    "brand":"iphone",
-    "generation":"x",
-    "color":"black",
-    "size":"large"
-    "touch sensitive?":yes
-
-  },
-  {
-    "brand":"nokia",
-    "generation":"2014",
-    "color":"white",
-    "size":"small"
-    "touch sensitive?":no
-
-  },
-  {
-    "brand":"sony",
-    "generation":"20",
-    "color":"black",
-    "size":"medium"
-    "touch sensitive?":yes
-
-  }
+      $(document).ready(function() {
+        $(".carousel-inner").html(dataHtml);
+        //we need to explicitly call this with dynamic html
+        $(".carousel").carousel();
+      })
+    }).fail(function(data) {
+      console.log("failed! " + JSON.stringify(data));
+    });
+  </script>
 
 
     </script>
