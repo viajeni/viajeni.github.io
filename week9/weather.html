@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+</script>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WEATHER</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.css">
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style media="screen">
+    .weatherDiv {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .wi{
+      font-size: 5em;
+      color: #FFE4E1;
+
+    }
+
+    body {
+      background-color: #;
+      font-family: 'Open Sans Condensed', sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .container {
+      background-color: white;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .day {
+      font-weight: bold;
+      margin-top: 5px;
+      font-size: 25px;
+      border-top: 3px solid black;
+    }
+
+    .date {
+      border-bottom: solid black 3px;
+    }
+
+    p {
+      margin-left: 70px;
+      margin-right: 70px;
+      text-align: center;
+      line-height: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Toronto's Weather</h1>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dapibus urna at tortor imperdiet laoreet. Nam pulvinar mattis velit, in molestie est hendrerit at. Quisque condimentum augue nibh, sed auctor sapien tincidunt vel. Maecenas eget tellus sit amet lorem consequat mollis ut sit amet lectus. Donec laoreet diam nec nulla malesuada, sit amet interdum massa tincidunt. Maecenas consectetur leo tellus, vel tempor tellus egestas eu. Duis pharetra fermentum urna. Suspendisse ornare ipsum a suscipit feugiat. Ut at orci porta, luctus nisl id, efficitur ligula. Maecenas elementum justo orci, vel faucibus lorem sagittis facilisis. Cras facilisis magna nec orci aliquet, eget lacinia libero posuere.
+  </p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 weatherDiv"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+
+
+      </div>
+
+    </div>
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script>
+
+  var iconClasses ={
+    "Rain And Snow":"wi-rain",
+    "Mostly Cloudy":"wi-cloudy",
+    "Breezy":"wi-windy",
+    "Partly Cloudy":"wi-day-cloudy-high",
+    "Mostly Sunny":"wi-day-sunny"
+
+  }
+
+
+
+
+    var url =
+      "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22toronto%2C%20ON%22)%20and%20u%3D'c'&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
+
+    function processForecast(f) {
+      console.log("forecast");
+      console.dir(f);
+      var html = "";
+
+      for (var i = 0; i < f.length; i++) {
+
+        console.log("i" + i);
+        html += "<div class='dayOfWeek'>"
+        html+="<i class='wi "+iconClasses[f[i].text]+"'></i>";
+        html += "<div class='day'>" + f[i].day + "</div>";
+        html += "<div>" + f[i].text + "</div>";
+        html += "<div class='date'>" + f[i].date + "</div>";
+        html += "</div>"
+      }
+      $(document).ready(function() {
+        $(".weatherDiv").html(html);
+      })
+    }
+    $.get(url)
+      .done(function(data) { //SUCCESS
+        console.log("success!");
+        console.dir(data);
+        //access nested objects within
+        var forecast = data.query.results.channel.item.forecast;
+        processForecast(forecast);
+      })
+      .fail(function(data) { //FAIL
+        console.log('fail');
+        console.dir(data);
+      })
+  </script>
+
+</body>
+
+</html>
