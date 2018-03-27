@@ -22,9 +22,23 @@
     }
 
     .itemButton{
-      text-align: right;
+      text-align: center;
       padding: 10px;
     }
+
+    img {
+      width: 200px;
+      height: 300px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    li {
+      display: in-line-block;
+    }
+    
   </style>
 
   <!-- Bootstrap -->
@@ -39,7 +53,20 @@
     <![endif]-->
 </head>
 
+<h1>Card Website</h1>
+
 <body>
+  <li>
+    <ul>
+      Home
+    </ul>
+    <ul>
+      About
+    </ul>
+    <ul>
+      Location
+    </ul>
+  </li>
   <div class="container">
     <div class="row">
       <div class="col-md-12 cardSection">
@@ -63,7 +90,7 @@
           "animal": "bear",
           "size": "big",
           "colour": "black",
-        //  "imgUrl": "http://via.placeholder.com/300x300",
+        "imgUrl": "https://raw.githubusercontent.com/viajeni/viajeni.github.io/master/presentations/week11/bear.jpg",
           "button": "More Info" //if u wish to do buttons
         },
 
@@ -71,7 +98,7 @@
           "animal": "panda",
           "size": "big",
           "colour": "black & white",
-        //  "imgUrl": "http://via.placeholder.com/300x300",
+        "imgUrl": "https://raw.githubusercontent.com/viajeni/viajeni.github.io/master/presentations/week11/panda.jpg",
           "button": "More Info" //if u wish to do buttons
         },
 
@@ -79,7 +106,7 @@
           "animal": "raccoon",
           "size": "medium",
           "colour": "grey & black",
-        //"imgUrl": "http://via.placeholder.com/300x300",
+        "imgUrl": "https://raw.githubusercontent.com/viajeni/viajeni.github.io/master/presentations/week11/download.jpeg",
           "button": "More Info" //if u wish to do buttons
         }
       ];
@@ -98,7 +125,7 @@
 
         for (var i = 0; i < animals.length; i++) { //change arrayTopic to whatever you
           html += "<div class='panel panel-default individualCard'>" +
-          //  "<div><img class='img-responsive' src='" + arrayTopic[i].imgUrl + "' /></div>" + //change the red text to the keys in your Array
+          "<div><img class='img-responsive' src='" + animals[i].imgUrl + "' /></div>" + //change the red text to the keys in your Array
             "<div class='cardInfo nameLabel'>" + animals[i].animal + "</div>" + //change the red text to the keys in your Array
             "<div class='cardInfo ageLabel'>" + animals[i].size + "</div>" + //change the red text to the keys in your Array
             "<div class='cardInfo ownerLabel'>" + animals[i].colour + "</div>" + //change the red text to the keys in your Array
