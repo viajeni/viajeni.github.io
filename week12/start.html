@@ -122,7 +122,20 @@
           }
           //alert("value "+val);
         })
-    }
+
+        //$(".buyButton").on("click", function(){
+          //console.log("clicked buy!");
+        //})
+
+        $("body").on("click",".buyButton", function(){
+          console.log("clicked buy!");
+          var thisItem = $(this).closest(".itemContainer");
+          var itemId = $(this).attr("data-id");
+
+          var html = "<div data-id='itemId''class='itemContainer'> class=thisItem.html()+"</div>";
+
+          return false;
+        })
 
     function writeJSONToDOM(d){
       var html="";
@@ -155,13 +168,34 @@
         //loop this here
       $(".output").html(html);
     }
-    $(document).ready(function() {
-      getOptions();
-      getAds();
-      initEvents();
-      $(".selectContainer").find("select").change();
-      $("body").fadeIn();
-    })
+
+  var formhtml="";
+  var formUrl="https://andersonguelphjs.github.io/class/week12/partial.html";
+
+
+
+  $.get(formUrl)
+
+  .done(function(data){//success
+    console.log("success get select json! ");
+    console.log(data);
+    formhtml=data;
+
+  })
+  .fail(function(data){//fail
+    console.log("fail get select json! ");
+    console.dir(data);
+  })
+
+  $(document).ready(function() {
+    getOptions();
+    getAds();
+    initEvents();
+    $(".selectContainer").find("select").change();
+    $("body").fadeIn();
+  })
+
+}
   </script>
 </body>
 
