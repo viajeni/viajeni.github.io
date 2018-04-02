@@ -152,9 +152,9 @@ var spriteImages = [{
     "name": "girl"
   },
   {
-    "spriteMapUrl": "images/sprite.png",
-    "numFrames": 12,
-    "width": 980,
+    "spriteMapUrl": "images/kim.png",
+    "numFrames": 5,
+    "width": 809,
     "height": 100,
     "name": "cat"
   }
